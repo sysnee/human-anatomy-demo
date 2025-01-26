@@ -104,7 +104,7 @@ You can view a working example of the component on JSFiddle:
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration-[version].js"></script>
+    <script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration-1.0.0.js"></script>
 </head>
 <body>
     <human-body-map
