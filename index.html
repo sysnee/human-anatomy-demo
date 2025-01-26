@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Body Map Demo</title>
+    <script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="system-buttons">
+        <button class="system-button" data-system="default">Visão Geral</button>
+        <button class="system-button" data-system="Sistema Nervoso">Sistema Nervoso</button>
+        <button class="system-button" data-system="Sistema Respiratório">Sistema Respiratório</button>
+        <button class="system-button" data-system="Sistema Circulatório">Sistema Circulatório</button>
+        <button class="system-button" data-system="Sistema Endócrino">Sistema Endócrino</button>
+        <button class="system-button" data-system="Sistema Urinário">Sistema Urinário</button>
+        <button class="system-button" data-system="Sistema Reprodutivo">Sistema Reprodutivo</button>
+        <button class="system-button" data-system="Sistema Digestivo">Sistema Digestivo</button>
+        <button class="system-button" data-system="Sistema Musculoesquelético">Sistema Musculoesquelético</button>
+    </div>
+
+    <human-body-map
+        id="bodyMap"
+        cpf="12345678900"
+        access-key="demo-123">
+    </human-body-map>
+
+    <script>
+        const bodyMap = document.getElementById('bodyMap');
+        const buttons = document.querySelectorAll('.system-button');
+
+        function updateActiveButton(system) {
+            const currentSystem = system === 'default' || !system ? 'default' : system;
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.system === currentSystem);
+            });
+        }
+
+        // Initialize with default view
+        updateActiveButton('default');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const system = button.dataset.system;
+                if (system === 'default') {
+                    bodyMap.resetOrganFilter();
+                } else {
+                    bodyMap.selectedOrgan = '';
+                    bodyMap.selectedSystem = system;
+                }
+                updateActiveButton(system);
+            });
+        });
+
+        bodyMap.addEventListener('organ-click', (e) => {
+            console.log('Selected:', e.detail);
+            updateActiveButton(e.detail.system);
+        });
+
+        bodyMap.addEventListener('reset-filter', () => {
+            updateActiveButton('default');
+        });
+    </script>
+</body>
+</html>
