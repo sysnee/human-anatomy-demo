@@ -24,7 +24,7 @@ O Human Body Map é um componente web interativo que permite a visualização e 
 
 ### Uso via CDN
 html
-<script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration.js"></script>
+<script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration-[version].js"></script>
 
 
 > **Nota Importante**: Quando implementado em webview, certifique-se de que o JavaScript esteja habilitado para o funcionamento correto do componente.
@@ -102,7 +102,7 @@ html
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration.js"></script>
+    <script type="module" src="https://d2343lbggy2b29.cloudfront.net/human-body-map-illustration-[version].js"></script>
 </head>
 <body>
     <human-body-map
